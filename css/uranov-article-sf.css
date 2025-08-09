@@ -1,0 +1,82 @@
+@charset "iso-2022-jp";
+
+/* -------------------------------------------------------------------------
+ * $RCSfile$
+ * $Auther$
+ * $Date$
+ * -------------------------------------------------------------------------
+ * CSS (Cascading Style Sheets)
+ * できるだけ LaTeX 風に文書構造が表現できるようにした.
+ * 個人的によく使う HTML タグを中心にスタイル化している.
+ * このため定義していないタグも多数あり.
+ * -------------------------------------------------------------------------
+ * $Log$
+ * ------------------------------------------------------------------------- */
+
+/* ======================== */
+/* 1.2.1.7. テーブル(table) */
+/* ======================== */
+/* ------------------------- */
+/* 1.2.1.7.4. データセル(td) */
+/* ------------------------- */
+td.double{
+     background-color: #ffff99;
+}
+
+/* =============================== */
+/* 1.2.2. 汎用インライン要素(span) */
+/* =============================== */
+/* ----------------------------- */
+/* 1.2.2.5. より強い強調(strong) */
+/* ----------------------------- */
+strong.done{
+    color: red;
+}
+strong.yet{
+    color: green;
+}
+strong.have{
+    color: yellow;
+}
+
+/* --------------- */
+/* X.4. 上メニュー */
+/* --------------- */
+nav{
+    position: fixed;
+    top: 0;
+    left: 30px;
+    /* right: 0; */
+}
+nav ul{
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    /*
+    justify-content: flex-end;
+    justify-content: center;
+    margin: 0;
+    padding: 6px;
+    list-style-type: none;
+   */
+}
+nav ul li{
+    text-decoration: none;
+    text-align: center;
+    background-color: dimgray;
+    margin-right: 5px;
+}
+nav ul li a{
+    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+}
+nav ul li a:link{
+    color: white;
+}
+nav ul li a:visited{
+    color: white;
+}
+nav ul li a:hover{
+    color: yellow;
+}

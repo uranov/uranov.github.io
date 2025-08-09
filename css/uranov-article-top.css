@@ -1,0 +1,638 @@
+@charset "utf-8";
+
+/* -------------------------------------------------------------------------
+ * $RCSfile$
+ * $Auther$
+ * $Date$
+ * -------------------------------------------------------------------------
+ * CSS (Cascading Style Sheets)
+ * できるだけ LaTeX 風に文書構造が表現できるようにした.
+ * 個人的によく使う HTML タグを中心にスタイル化している.
+ * このため定義していないタグも多数あり.
+ * -------------------------------------------------------------------------
+ * $Log$
+ * ------------------------------------------------------------------------- */
+
+/* ===================== */
+/* LaTeX: \documentclass */
+/* ===================== */
+/* ------------------- */
+/* 1. ページ全体(html) */
+/* ------------------- */
+*{
+}
+/* --------------------- */
+/* 1.1. 文書ヘッダ(head) */
+/* --------------------- */
+/* -------------------------- */
+/* 1.1.1. 文書タイトル(title) */
+/* -------------------------- */
+/* --------------------- */
+/* 1.1.2. メタ情報(meta) */
+/* --------------------- */
+/* ------------------------ */
+/* 1.1.3. 著者情報(address) */
+/* ------------------------ */
+/* 表紙ではフッタとして使用 */
+/* --------------------------- */
+/* 1.1.4. 文書の基本 URL(base) */
+/* --------------------------- */
+/* ----------------------- */
+/* 1.1.5. 文書の連結(link) */
+/* ----------------------- */
+
+/* ------------------- */
+/* 1.2. 文書本体(body) */
+/* ------------------- */
+body{
+    color: black;
+    background-color: #ccc;
+    font-family: "Verdana", "Arial", "Helvetica", sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.4;
+    margin: 0;
+    padding: 2em 5%;
+}
+
+/* ================================== */
+/* 1.2.1. 汎用ブロックレベル要素(div) */
+/* ================================== */
+div{
+    margin: 0;
+}
+/* 図は中央に置く */
+div.figure {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+div.left {
+    text-align: left;
+}
+div.center {
+    text-align: center;
+}
+div.right {
+    text-align: right;
+}
+div.quote{			/* LaTeX: \begin{quotation} */
+    margin: 1.5em 0em 1.5em 3em;
+/*    margin-left: 0em; */
+}
+div.comment{
+    margin: 1.5em 0em 1.5em 3em;
+    font-weight: normal;
+/*    font-style: italic; */
+/*    font-family: "ＭＳ Ｐ明朝", 平成明朝, "Ryumin-Light", "Mincho Font", min, serif; */
+    color: #666;
+}
+div.warning{
+    margin: 1.5em 0em 1.5em 3em;
+    font-weight: normal;
+    color: #c00;
+}
+div.annotation{
+    margin: 1.5em 0em 1.5em 3em;
+    font-weight: bold;
+}
+div.math{
+    white-space: pre;
+    font-family: monospace;
+    font-size: 100%;
+    font-style: normal;
+    line-height: 1.0;
+    margin-top: 1em;
+    margin-bottom: 0em;
+    margin-left: 0em;
+    border: outset 2px gray;
+    padding: 1em;
+    background-color: #ddd;
+    color: black;
+}
+div.website-counter {
+    background-color: black;
+    height: 1.4em;
+    width: 4.2em;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 110%;
+}
+
+/* ------------------------------------ */
+/* 1.2.1.1. 見出しレベル 1 - 6(h1 - h6) */
+/* ------------------------------------ */
+/* 適当に LaTeX の見出しに割り当て */
+h1, h2, h3, h4, h5, h6{
+    font-weight: bold;
+    font-style: normal;
+    margin: 1em 0em;
+}
+h1, h2, h3{
+    line-height: 1.2;
+}
+h1{
+    font-size: 200%;
+}
+h2{
+    font-size: 160%;
+}
+h3{
+    font-size: 120%;
+}
+h4{
+    font-size: 110%;
+}
+
+/* 通常のタイトル */
+h1.title{			/* LaTeX: \title */
+    text-align: center;
+}
+h2.subtitle{
+    text-align: center;
+}
+h2.contents{
+    border-bottom: solid 2px gray;
+}
+/* 節見出し */
+h2.section{			/* LaTeX: \section */
+    margin: 1.5em 0em 1em 0em;
+    border-bottom: solid 2px black;
+}
+/* 小節見出し */
+h3.subsection{			/* LaTeX: \subsection */
+    border-bottom: solid 2px gray;
+}
+/* 小々節見出し */
+h4.subsubsection{			/* LaTeX: \subsubsection */
+    text-decoration: underline;
+}
+/* 段落見出し */
+h5.paragraph{			/* LaTeX: \paragraph */
+    text-decoration: underline;
+}
+/* 小段落見出し */
+h6.subparagraph{		/* LaTeX: \subparagraph */
+}
+/* ---------------- */
+/* 1.2.1.2. 段落(p) */
+/* ---------------- */
+p{
+    margin: 1em 0em;
+    text-indent: 1em;
+}
+p.noindent{
+    text-indent: 0em;
+}
+p.comment{
+    text-indent: 0em;
+    margin-left: 3em;
+    font-weight: normal;
+    font-style: italic;
+    color: #666;
+}
+p.date{
+    text-align: right;
+    font-weight: normal;
+    font-style: italic;
+}
+/* ------------------------- */
+/* 1.2.1.3. 引用(blockquote) */
+/* ------------------------- */
+blockquote{			/* LaTeX: \begin{quotation} */
+    margin: 1.5em 0em 1.5em 3em;
+/*    margin-left: 0em; */
+}
+/* blockquate は引用以外に利用してはいけない.
+
+/* ------------------------------ */
+/* 1.2.1.4. 整形済みテキスト(pre) */
+/* ------------------------------ */
+pre{
+    white-space: pre;
+    font-family: monospace;
+    font-size: 100%;
+    font-style: normal;
+    line-height: 1.0;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    margin-left: 1em;
+    border: outset 2px gray;
+    padding: 1em;
+    background-color: #ddd;
+    color: black;
+}
+/* ------------------- */
+/* 1.2.1.5. 水平線(hr) */
+/* ------------------- */
+hr{
+    margin: 0;
+    width: 100%;
+    border: groove 3px #eee;
+}
+
+/* =============== */
+/* 1.2.1.6. リスト */
+/* =============== */
+/* ----------------------------- */
+/* 1.2.1.6.1. 箇条書きリスト(ul) */
+/* ----------------------------- */
+ul{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style-type: disc;
+}
+/* ----------------------------- */
+/* 1.2.1.6.2. 番号付きリスト(ol) */
+/* ----------------------------- */
+ul ul, ul ol, ol ul, ol ol{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+/* --------------------------- */
+/* 1.2.1.6.2.1. リスト要素(li) */
+/* --------------------------- */
+/* ------------------------- */
+/* 1.2.1.6.3. 定義リスト(dl) */
+/* ------------------------- */
+dl{
+    margin: 1em 0em; /* top & bottom, right & left */
+}
+/* ------------------------- */
+/* 1.2.1.6.3.1. 定義用語(dt) */
+/* ------------------------- */
+dt{
+    font-weight: bold;
+    margin: 0
+}
+/* ------------------------- */
+/* 1.2.1.6.3.2. 定義解説(dd) */
+/* ------------------------- */
+dd{
+    margin: 0 0 0 3em; /* top, right, bottom, left */
+}
+/* ---------------------------------- */
+/* 1.2.1.6.4. ディレクトリリスト(dir) */
+/* ---------------------------------- */
+/* ------------------------------- */
+/* 1.2.1.6.5. メニューリスト(menu) */
+/* ------------------------------- */
+/* ======================== */
+/* 1.2.1.7. テーブル(table) */
+/* ======================== */
+table{
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: solid 2px black;
+    empty-cells: show;
+/*
+    width: 98%;
+    position: relative;
+    left: 1%;
+*/
+}
+table.indent{
+    position: relative;
+    left: 2em;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: solid 2px black;
+    empty-cells: show;
+}
+table.no{
+    margin: 0 0 0 0; /* top, right, bottom, left */
+    border: none 0;
+}
+/* ------------------------ */
+/* 1.2.1.7.1. 表題(caption) */
+/* ------------------------ */
+/* 表の題名は表の上に */
+/* (図の場合は下に) */
+caption{
+    margin: 1em 0 0 0;
+    line-height: 1.4;
+    font-weight: bold;
+}
+/* ----------------- */
+/* 1.2.1.7.2. 行(tr) */
+/* ----------------- */
+/* ------------------------- */
+/* 1.2.1.7.3. ヘッダセル(th) */
+/* ------------------------- */
+th, td{
+    text-align: left;
+    vertical-align: middle;
+    border: solid 1px black;
+    padding: 3px 5px;
+}
+th{
+    text-align: center;
+    font-weight: bold;
+    background-color: #888;
+    color: #eee
+}
+/* ------------------------- */
+/* 1.2.1.7.4. データセル(td) */
+/* ------------------------- */
+td.no{
+    border: none 0;
+    padding: 0;
+}
+td.gray{
+     background-color: #ddd;
+}
+td.mark{
+     text-align: center;
+}
+td.money{
+     text-align: right;
+}
+td.num{
+     text-align: center;
+}
+/* ------------------------ */
+/* 1.2.1.7.5. ヘッダ(thead) */
+/* ------------------------ */
+/* ------------------------ */
+/* 1.2.1.7.6. フッタ(tfoot) */
+/* ------------------------ */
+/* ------------------------ */
+/* 1.2.1.7.7. ボディ(tbody) */
+/* ------------------------ */
+/* ------------------------------- */
+/* 1.2.1.7.8. 列グループ(colgroup) */
+/* ------------------------------- */
+/* ------------------ */
+/* 1.2.1.7.9. 列(col) */
+/* ------------------ */
+/* =============================== */
+/* 1.2.2. 汎用インライン要素(span) */
+/* =============================== */
+/* --------------------- */
+/* 1.2.2.1. 強制改行(br) */
+/* --------------------- */
+/* ---------------- */
+/* 1.2.2.2. 引用(q) */
+/* ---------------- */
+/* --------------------------- */
+/* 1.2.2.3. 出典・参照先(cite) */
+/* --------------------------- */
+/* ----------------- */
+/* 1.2.2.4. 強調(em) */
+/* ----------------- */
+em, strong{
+    font-style: normal;
+    font-weight: bold;
+}
+em.red{
+    font-weight: normal;
+    color: red;
+}
+em.darkred{
+    font-weight: normal;
+/*    color: #b03060; */
+    color: darkred;
+}
+em.pink{
+    font-weight: normal;
+    color: deeppink;
+}
+em.green{
+    font-weight: normal;
+    color: green;
+}
+em.blue{
+    font-weight: normal;
+    color: blue;
+}
+em.yellow{
+    font-weight: normal;
+    color: yellow;
+}
+em.gray{
+    font-weight: normal;
+    color: gray;
+}
+em.italic{
+    font-style: italic;
+    font-weight: normal;
+}
+/* ----------------------------- */
+/* 1.2.2.5. より強い強調(strong) */
+/* ----------------------------- */
+strong.red{
+    color: red;
+}
+strong.green{
+    color: green;
+}
+strong.blue{
+    color: blue;
+}
+strong.yellow{
+    color: yellow;
+}
+/* ------------------- */
+/* 1.2.2.6. 略語(abbr) */
+/* ------------------- */
+/* ------------------------ */
+/* 1.2.2.7. 頭字語(acronym) */
+/* ------------------------ */
+/* ------------------------ */
+/* 1.2.2.8. 上付き文字(sup) */
+/* ------------------------ */
+/* ------------------------ */
+/* 1.2.2.9. 下付き文字(sub) */
+/* ------------------------ */
+/* ---------------------------------- */
+/* 1.2.2.10. コンピュータコード(code) */
+/* ---------------------------------- */
+code, var, kbd, samp{
+    font-family: monospace;
+    font-style: normal;
+    font-size: 100%;
+}
+/* ------------------- */
+/* 1.2.2.11. 変数(var) */
+/* ------------------- */
+var{
+    font-style: italic;
+}
+/* ----------------------------- */
+/* 1.2.2.12. キーボード文字(kbd) */
+/* ----------------------------- */
+/* ------------------------ */
+/* 1.2.2.13. サンプル(samp) */
+/* ------------------------ */
+/* ----------------------- */
+/* 1.2.2.14. 定義用語(dfn) */
+/* ----------------------- */
+/* --------------------------- */
+/* 1.2.2.15. 文字表記方向(bdo) */
+/* --------------------------- */
+/* --------------------------------- */
+/* 1.2.2.16. 挿入されたテキスト(ins) */
+/* --------------------------------- */
+/* --------------------------------- */
+/* 1.2.2.17. 削除されたテキスト(del) */
+/* --------------------------------- */
+del{
+    text-decoration: line-through;
+}
+/* ------------------------- */
+/* 1.2.2.18. イタリック体(i) */
+/* ------------------------- */
+/* ----------------- */
+/* 1.2.2.19. 太字(b) */
+/* ----------------- */
+/* ----------------------- */
+/* 1.2.2.20. 文字拡大(big) */
+/* ----------------------- */
+/* ------------------------- */
+/* 1.2.2.21. 文字縮小(small) */
+/* ------------------------- */
+/* -------------------------- */
+/* 1.2.2.22. 等幅フォント(tt) */
+/* -------------------------- */
+
+/* --------------------------- */
+/* 1.2.2.23. 埋め込み画像(img) */
+/* --------------------------- */
+/* ----------------------------- */
+/* 1.2.2.24. イメージマップ(map) */
+/* ----------------------------- */
+/* ------------------------------------ */
+/* 1.2.2.25. イメージマップエリア(area) */
+/* ------------------------------------ */
+/* --------------------- */
+/* 1.2.2.26. アンカー(a) */
+/* --------------------- */
+a{
+    text-decoration: none;
+    border-style: none;
+}
+a:link{
+    color: blue;
+}
+a:visited{
+   color: purple;
+}
+a:hover, a:focus, a:active{
+    color: green;
+}
+/* ----------------------- */
+/* X. 個人ページ用特殊装飾 */
+/* ----------------------- */
+/* ------------- */
+/* X.1. タイトル */
+/* ------------- */
+/* 表紙用タイトル */
+div.title {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: groove 2px white;
+}
+/* 画像付きのタイトル(サブ表紙用) */
+h1.image{
+    padding-bottom: 0.3em;
+    border-bottom: groove 2px #eee;
+}
+/* ------------------- */
+/* X.2. ヘッダ・フッタ */
+/* ------------------- */
+/* ヘッダには最終更新日を入れる */
+div.header{
+    margin: 0em 0em 1em 20em;
+    font-weight: normal;
+    font-style: italic;
+    text-align: right;
+    border-bottom: solid 2px gray;
+}
+/* フッタには戻り先を入れる */
+div.footer{
+    text-align: left;
+    margin: 1em 0em 0em 0em;
+    font-weight: bold;
+    border-top: solid 2px gray;
+}
+/* アドレスもフッタに加える */
+address.footer{
+    text-align: right;
+    margin: -1.4em 0em 0em 0em;
+}
+/* サブ表紙のフッタはラインを変える */
+div.topfooter{
+    text-align: left;
+    margin: 1em 0em 0em 0em;
+    font-weight: bold;
+    border-top: groove 2px white;
+}
+/* 表紙のフッタは例外. アドレスのみ */
+address.topfooter{
+    text-align: right;
+    margin: 1em 0em 0em 0em;
+    border-top: groove 2px white;
+}
+/* 表紙ページのイメージ */
+div.topimage {
+    width: 390px;
+    border: outset 2px white;
+}
+/* 表紙ページのイメージリンク */
+a img {
+    border-style: none;
+}
+/* ----------- */
+/* X.3. 2 段組 */
+/* ----------- */
+/* 2 段組左 */
+div.twocola {
+    float: left;
+    width: 49%;
+    text-indent: 1em;
+}
+/* 2 段組右 */
+div.twocolb {
+    float: right;
+    width: 49%;
+    text-indent: 1em;
+}
+/*
+div.twocolb::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+*/
+/* 2 段組またぎ */
+div.twocolc {
+    clear: both;
+    text-indent: 1em;
+}
+/*
+div.twocolc {
+    float: left;
+    width: 100%;
+    text-indent: 1em;
+}
+div.twocolc::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+*/
+/* 2 段組左 */
+div.hogen {
+    float: left;
+    width: 49%;
+    text-indent: 0em;
+    color: green;
+}
+/* 2 段組右 */
+div.hyoujyun {
+    float: right;
+    width: 49%;
+    text-indent: 0em;
+    color: blue;
+}
